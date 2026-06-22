@@ -192,7 +192,7 @@ export default function TrackOrderPage() {
             </div>
 
             <div className="mt-5">
-              <Link href="/products" className="inline-flex rounded-xl bg-gray-900 px-4 py-2.5 text-sm font-bold text-white hover:bg-black">
+              <Link href="/products" className="inline-flex rounded-xl bg-pink-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-pink-700">
                 Continue Shopping
               </Link>
             </div>

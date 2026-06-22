@@ -64,7 +64,7 @@ export default function ReviewsPage() {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`px-4 py-3 text-sm font-medium border-b-2 transition sm:px-6 ${
-                activeTab === tab.id ? 'border-black text-black' : 'border-transparent text-gray-600 hover:text-gray-900'
+                activeTab === tab.id ? 'border-pink-600 text-pink-600' : 'border-transparent text-gray-600 hover:text-gray-900'
               }`}
             >
               {tab.label}
@@ -95,7 +95,7 @@ export default function ReviewsPage() {
                 </div>
                 <p className="mb-3 text-sm text-gray-700 sm:text-base">{review.comment}</p>
                 {review.response && (
-                  <div className="mb-3 rounded-lg border-l-4 border-black bg-white p-3">
+                  <div className="mb-3 rounded-lg border-l-4 border-pink-600 bg-white p-3">
                     <p className="text-sm font-medium text-black">Admin Response:</p>
                     <p className="text-sm text-black">{review.response}</p>
                   </div>

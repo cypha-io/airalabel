@@ -34,7 +34,7 @@ export default function InventoryPage() {
       <div className="space-y-5 p-4 sm:p-6 lg:p-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="text-2xl font-bold sm:text-3xl">Inventory Management</h1>
-          <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-4 py-2 text-sm text-white hover:bg-gray-800">
+          <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-pink-600 px-4 py-2 text-sm text-white hover:bg-pink-700">
             <FiPlus /> Add Item
           </button>
         </div>

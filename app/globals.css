@@ -3,9 +3,12 @@
 :root {
   --mono-bg: #ffffff;
   --mono-fg: #000000;
-  --mono-muted: #525252;
-  --mono-border: #d4d4d4;
-  --mono-soft: #f5f5f5;
+  --mono-muted: #ec4899;
+  --mono-border: #fbcfe8;
+  --mono-soft: #fef2f8;
+  --primary-pink: #ec4899;
+  --light-pink: #fbcfe8;
+  --pale-pink: #fef2f8;
 }
 
 body {
@@ -18,14 +21,14 @@ body {
 .gray-blur-spot {
   position: absolute;
   border-radius: 9999px;
-  background: radial-gradient(circle at center, rgba(115, 115, 115, 0.35) 0%, rgba(163, 163, 163, 0.18) 35%, rgba(255, 255, 255, 0) 72%);
+  background: radial-gradient(circle at center, rgba(236, 72, 153, 0.25) 0%, rgba(244, 114, 182, 0.12) 35%, rgba(255, 255, 255, 0) 72%);
   filter: blur(28px);
   pointer-events: none;
 }
 
 .glass-gray {
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(254, 242, 248, 0.8);
+  border: 1px solid rgba(236, 72, 153, 0.2);
   backdrop-filter: blur(14px);
 }
 

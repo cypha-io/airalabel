@@ -205,7 +205,7 @@ export default function UserDashboardPage() {
           <div className="rounded-[2rem] bg-white p-6 sm:p-8 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:shadow-md hover:ring-black relative overflow-hidden group">
             <div className="absolute -right-6 -top-6 w-24 h-24 bg-gradient-to-bl from-white to-transparent rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
             <div className="flex items-center gap-4 mb-4 relative z-10">
-              <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center text-white text-xl shadow-inner group-hover:bg-gray-800 group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 bg-pink-600 rounded-2xl flex items-center justify-center text-white text-xl shadow-inner group-hover:bg-pink-700 group-hover:text-white transition-colors duration-300">
                 <FiShoppingCart />
               </div>
               <p className="text-sm font-black uppercase tracking-wider text-slate-500">Cart Items</p>
@@ -217,7 +217,7 @@ export default function UserDashboardPage() {
           <div className="rounded-[2rem] bg-white p-6 sm:p-8 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:shadow-md hover:ring-black relative overflow-hidden group">
             <div className="absolute -right-6 -top-6 w-24 h-24 bg-gradient-to-bl from-white to-transparent rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
             <div className="flex items-center gap-4 mb-4 relative z-10">
-              <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center text-white text-xl shadow-inner group-hover:bg-gray-800 group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 bg-pink-600 rounded-2xl flex items-center justify-center text-white text-xl shadow-inner group-hover:bg-pink-700 group-hover:text-white transition-colors duration-300">
                 <FiPackage />
               </div>
               <p className="text-sm font-black uppercase tracking-wider text-slate-500">Active Orders</p>
@@ -229,7 +229,7 @@ export default function UserDashboardPage() {
           <div className="rounded-[2rem] bg-white p-6 sm:p-8 shadow-sm ring-1 ring-slate-200 transition-all duration-300 hover:shadow-md hover:ring-black sm:col-span-2 lg:col-span-1 relative overflow-hidden group">
             <div className="absolute -right-6 -top-6 w-24 h-24 bg-gradient-to-bl from-white to-transparent rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
             <div className="flex items-center gap-4 mb-4 relative z-10">
-              <div className="w-12 h-12 bg-black rounded-2xl flex items-center justify-center text-white text-xl shadow-inner group-hover:bg-gray-800 group-hover:text-white transition-colors duration-300">
+              <div className="w-12 h-12 bg-pink-600 rounded-2xl flex items-center justify-center text-white text-xl shadow-inner group-hover:bg-pink-700 group-hover:text-white transition-colors duration-300">
                 <FiClock />
               </div>
               <p className="text-sm font-black uppercase tracking-wider text-slate-500">Total Orders</p>

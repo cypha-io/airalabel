@@ -21,28 +21,28 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://zhilakaii.com'),
+  metadataBase: new URL('https://airalabel.com'),
   title: {
-    template: '%s | Zhilakaii',
-    default: 'Zhilakaii',
+    template: '%s | Airalabel',
+    default: 'Airalabel',
   },
-  description: "Inspired by Sparkling Heaven, Zhilakaii embodies celestial elegance and radiant beauty. Jewelry crafted to sparkle like the stars.",
+  description: "Airalabel - Your premium label solution for excellence and innovation.",
   icons: {
     icon: "/logo-square.png",
     shortcut: "/logo-square.png",
     apple: "/logo-square.png",
   },
   openGraph: {
-    title: "Zhilakaii",
-    description: "Inspired by Sparkling Heaven, Zhilakaii embodies celestial elegance and radiant beauty. Jewelry crafted to sparkle like the stars.",
-    url: "https://zhilakaii.com",
-    siteName: "Zhilakaii",
+    title: "Airalabel",
+    description: "Airalabel - Your premium label solution for excellence and innovation.",
+    url: "https://airalabel.com",
+    siteName: "Airalabel",
     images: [
       {
         url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "Zhilakaii Logo",
+        alt: "Airalabel Logo",
       },
     ],
     locale: "en_US",
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zhilakaii",
-    description: "Inspired by Sparkling Heaven, Zhilakaii embodies celestial elegance and radiant beauty. Jewelry crafted to sparkle like the stars.",
+    title: "Airalabel",
+    description: "Airalabel - Your premium label solution for excellence and innovation.",
     images: ["/logo.png"],
   },
 };

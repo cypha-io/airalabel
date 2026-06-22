@@ -88,7 +88,7 @@ export default function SplashScreen() {
       <div className="relative w-32 h-32 mb-6 animate-pulse">
         <Image
           src="/logo.png"
-          alt="Zhilakaii"
+          alt="Airalabel"
           fill
           className="object-contain"
           priority

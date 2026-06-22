@@ -88,7 +88,7 @@ export default function ConfirmPaymentPage() {
             <button
               type="submit"
               disabled={loading || !reference.trim()}
-              className="w-full h-12 bg-black text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:bg-gray-800 active:scale-[0.98] transition-all disabled:opacity-50 disabled:active:scale-100"
+              className="w-full h-12 bg-pink-600 text-white rounded-xl font-medium flex items-center justify-center gap-2 hover:bg-pink-700 active:scale-[0.98] transition-all disabled:opacity-50 disabled:active:scale-100"
             >
               {loading ? 'Verifying...' : 'Verify Payment'}
             </button>

@@ -66,7 +66,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         } bg-white transition-all duration-300 flex flex-col fixed h-screen z-40 shadow-lg`}
       >
         {/* Logo/Header */}
-        <div className="p-6 flex items-center justify-between border-b border-black">
+        <div className="p-6 flex items-center justify-between border-b border-pink-600">
           {isSidebarOpen && (
             <div className="flex items-center gap-3">
               <Image src="/logo.png" alt="Logo" width={32} height={32} className="w-8 h-8" />
@@ -101,7 +101,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
                       href={item.href}
                       className={`flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200 ${
                         isActive
-                          ? 'bg-white border-l-4 border-black text-white font-semibold'
+                          ? 'bg-white border-l-4 border-pink-600 text-white font-semibold'
                           : 'text-black hover:bg-white hover:text-white'
                       }`}
                     >
@@ -116,7 +116,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         </nav>
 
         {/* Logout */}
-        <div className="p-6 border-t border-black">
+        <div className="p-6 border-t border-pink-600">
           <button className="w-full flex items-center justify-center gap-2 px-3 py-3 rounded-lg bg-white text-black hover:bg-white transition-all duration-200 font-medium hover:shadow-md">
             <FiLogOut size={18} />
             {isSidebarOpen && <span className="text-sm">Logout</span>}
@@ -159,8 +159,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
               <div className="hidden group-hover:block absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-lg p-4 border border-gray-200 z-50">
                 <p className="text-sm font-semibold text-gray-900 mb-2">Notifications</p>
                 <div className="space-y-2 max-h-64 overflow-y-auto">
-                  <div className="p-2 bg-white rounded border-l-4 border-black text-sm">New order #1007 received</div>
-                  <div className="p-2 bg-white rounded border-l-4 border-black text-sm">Low stock: Mozzarella Cheese</div>
+                  <div className="p-2 bg-white rounded border-l-4 border-pink-600 text-sm">New order #1007 received</div>
+                  <div className="p-2 bg-white rounded border-l-4 border-pink-600 text-sm">Low stock: Mozzarella Cheese</div>
                 </div>
               </div>
             </button>

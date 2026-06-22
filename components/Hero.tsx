@@ -5,18 +5,18 @@ import { FiArrowRight } from 'react-icons/fi';
 
 export default function Hero() {
   return (
-    <section className="relative bg-black text-white py-20 px-6 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-gray-900" />
-      <div className="gray-blur-spot top-[-70px] left-[-40px] h-64 w-64" />
-      <div className="gray-blur-spot bottom-[-100px] right-[-60px] h-80 w-80" />
+    <section className="relative bg-white text-gray-900 py-20 px-6 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-pink-50 to-pink-100" />
+      <div className="absolute top-[-70px] left-[-40px] h-64 w-64 rounded-full bg-gradient-to-br from-pink-200 to-pink-300 opacity-30 blur-3xl" />
+      <div className="absolute bottom-[-100px] right-[-60px] h-80 w-80 rounded-full bg-gradient-to-tl from-pink-200 to-pink-300 opacity-30 blur-3xl" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center space-y-6">
           <h1 className="text-5xl md:text-7xl font-black tracking-tight">
-            Welcome to <span className="text-white">Zhilakaii</span>
+            Welcome to <span className="text-pink-600">Airalabel</span>
           </h1>
-          <p className="text-xl md:text-2xl font-semibold max-w-3xl mx-auto">
-            Celestial Elegance, Radiant Beauty
+          <p className="text-xl md:text-2xl font-semibold max-w-3xl mx-auto text-gray-700">
+            Premium Label Solutions
           </p>
           <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
             Jewelry crafted to sparkle like the stars and illuminate your unique style

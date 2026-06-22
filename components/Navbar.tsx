@@ -64,7 +64,7 @@ export default function Navbar() {
               <Link href="/" className="group flex items-center gap-3 transition-transform duration-500 hover:-translate-y-1">
                 <Image
                   src="/logo.png"
-                  alt="Zhilakaii Logo"
+                  alt="Airalabel Logo"
                   width={64}
                   height={64}
                   className="md:w-[72px] md:h-[72px] object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-md"
@@ -84,7 +84,7 @@ export default function Navbar() {
               >
                 {pathname === '/' ? (
                   <>
-                    <div className="absolute inset-0 bg-black shadow-lg" />
+                    <div className="absolute inset-0 bg-pink-600 shadow-lg" />
                     <HiHome className="relative text-xl z-10 drop-shadow-sm" />
                     <span className="relative font-bold text-[15px] z-10 drop-shadow-sm">Home</span>
                   </>
@@ -105,7 +105,7 @@ export default function Navbar() {
               >
                 {pathname === '/products' ? (
                   <>
-                    <div className="absolute inset-0 bg-black shadow-lg" />
+                    <div className="absolute inset-0 bg-pink-600 shadow-lg" />
                     <HiSquares2X2 className="relative text-xl z-10 drop-shadow-sm" />
                     <span className="relative font-bold text-[15px] z-10 drop-shadow-sm">Products</span>
                   </>
@@ -126,7 +126,7 @@ export default function Navbar() {
               >
                 {pathname === '/cart' ? (
                   <>
-                    <div className="absolute inset-0 bg-black shadow-lg" />
+                    <div className="absolute inset-0 bg-pink-600 shadow-lg" />
                     <HiShoppingCart className="relative text-xl z-10 drop-shadow-sm" />
                     <span className="relative font-bold text-[15px] z-10 drop-shadow-sm">Cart</span>
                     <span className="absolute -top-0.5 right-1.5 bg-white text-black text-[10px] font-black rounded-full h-4 w-4 flex items-center justify-center shadow-sm z-20">
@@ -139,7 +139,7 @@ export default function Navbar() {
                     <div className="relative z-10">
                       <HiOutlineShoppingCart className="text-xl transition-transform duration-300 group-hover:scale-110" />
                       {totalItems > 0 && (
-                        <span className="absolute -top-2 -right-2 bg-black text-white text-[9px] font-black rounded-full h-4 min-w-[16px] px-1 flex items-center justify-center border border-white shadow-sm ring-1 ring-black">
+                        <span className="absolute -top-2 -right-2 bg-pink-600 text-white text-[9px] font-black rounded-full h-4 min-w-[16px] px-1 flex items-center justify-center border border-white shadow-sm ring-1 ring-pink-600">
                           {badgeText}
                         </span>
                       )}
@@ -157,7 +157,7 @@ export default function Navbar() {
               >
                 {pathname === '/history' ? (
                   <>
-                    <div className="absolute inset-0 bg-black shadow-lg" />
+                    <div className="absolute inset-0 bg-pink-600 shadow-lg" />
                     <HiClock className="relative text-xl z-10 drop-shadow-sm" />
                     <span className="relative font-bold text-[15px] z-10 drop-shadow-sm">History</span>
                   </>
@@ -178,7 +178,7 @@ export default function Navbar() {
               >
                 {pathname === '/track-order' ? (
                   <>
-                    <div className="absolute inset-0 bg-black shadow-lg" />
+                    <div className="absolute inset-0 bg-pink-600 shadow-lg" />
                     <HiMagnifyingGlass className="relative text-xl z-10 drop-shadow-sm stroke-[3px]" />
                     <span className="relative font-bold text-[15px] z-10 drop-shadow-sm">Track</span>
                   </>
@@ -259,7 +259,7 @@ export default function Navbar() {
             {pathname === '/products' ? (
               <>
                 <div className="absolute -top-3 flex flex-col items-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-xl">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-600 text-white shadow-xl">
                     <HiSquares2X2 className="text-2xl drop-shadow-sm" />
                   </div>
                 </div>
@@ -280,7 +280,7 @@ export default function Navbar() {
             {pathname === '/cart' ? (
               <>
                 <div className="absolute -top-3 flex flex-col items-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-xl">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-600 text-white shadow-xl">
                     <HiShoppingCart className="text-2xl drop-shadow-sm" />
                     {totalItems > 0 && (
                        <span className="absolute -top-1 -right-1 bg-white text-black text-[10px] font-black rounded-full h-[18px] min-w-[18px] flex items-center justify-center shadow-sm px-1 z-10">
@@ -296,7 +296,7 @@ export default function Navbar() {
                 <div className="relative">
                   <HiOutlineShoppingCart className="text-[26px] text-gray-400 transition-colors group-hover:text-black" />
                   {totalItems > 0 && (
-                    <span className="absolute -top-1.5 -right-1.5 bg-black text-white text-[9px] font-black rounded-full h-[16px] min-w-[16px] flex items-center justify-center border-[1.5px] border-white shadow-sm px-1">
+                    <span className="absolute -top-1.5 -right-1.5 bg-pink-600 text-white text-[9px] font-black rounded-full h-[16px] min-w-[16px] flex items-center justify-center border-[1.5px] border-white shadow-sm px-1">
                       {badgeText}
                     </span>
                   )}
@@ -313,7 +313,7 @@ export default function Navbar() {
             {pathname === '/history' ? (
               <>
                 <div className="absolute -top-3 flex flex-col items-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-xl">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-600 text-white shadow-xl">
                     <HiClock className="text-2xl drop-shadow-sm" />
                   </div>
                 </div>
@@ -334,7 +334,7 @@ export default function Navbar() {
             {pathname === '/track-order' ? (
               <>
                 <div className="absolute -top-3 flex flex-col items-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-xl">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-600 text-white shadow-xl">
                     <HiMagnifyingGlass className="text-2xl drop-shadow-sm stroke-[2px]" />
                   </div>
                 </div>

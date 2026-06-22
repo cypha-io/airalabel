@@ -64,7 +64,7 @@ export default function PrintableKitchenTicket({
       {/* Print Button */}
       <button
         onClick={handlePrint}
-        className="flex items-center gap-2 px-4 py-2 bg-black hover:bg-gray-800 text-white rounded-lg font-bold transition-colors"
+        className="flex items-center gap-2 px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg font-bold transition-colors"
       >
         <FiPrinter size={18} />
         Print Ticket

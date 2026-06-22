@@ -549,7 +549,7 @@ export default function CheckoutPage() {
           <p className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wide shadow-sm ${
             isAuthenticatedUser
               ? 'border border-gray-200 bg-gray-50 text-gray-700'
-              : 'border border-black bg-white text-black'
+              : 'border border-pink-600 bg-white text-pink-600'
           }`}>
             {isAuthenticatedUser ? 'Checkout' : 'Checkout as Guest'}
           </p>
@@ -562,14 +562,14 @@ export default function CheckoutPage() {
             {placedOrderNumber && (
               <p className="text-sm font-bold text-black mb-6">Order Number: {placedOrderNumber}</p>
             )}
-            <Link href="/products" className="inline-block bg-black text-white px-6 py-3 rounded-xl font-bold hover:bg-gray-800">
+            <Link href="/products" className="inline-block bg-pink-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-pink-700">
               Continue Shopping
             </Link>
           </div>
         ) : items.length === 0 ? (
           <div className="text-center py-20">
             <p className="text-2xl text-gray-500 mb-6">Your cart is empty</p>
-            <Link href="/products" className="inline-block bg-black text-white px-8 py-3 rounded-full font-bold hover:bg-gray-800">
+            <Link href="/products" className="inline-block bg-pink-600 text-white px-8 py-3 rounded-full font-bold hover:bg-pink-700">
               Browse Products
             </Link>
           </div>
@@ -670,7 +670,7 @@ export default function CheckoutPage() {
                     type="button"
                     onClick={applyPromo}
                     disabled={applyingPromo || !promoCode.trim()}
-                    className="px-4 py-2.5 rounded-lg bg-gray-900 text-white text-sm font-semibold hover:bg-black disabled:opacity-60"
+                    className="px-4 py-2.5 rounded-lg bg-pink-600 text-white text-sm font-semibold hover:bg-pink-700 disabled:opacity-60"
                   >
                     {applyingPromo ? 'Applying...' : 'Apply'}
                   </button>

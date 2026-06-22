@@ -14,7 +14,7 @@ function getResendInstance(): Resend | null {
   return resendInstance;
 }
 
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'noreply@zhilakaii.com';
+const FROM_EMAIL = process.env.RESEND_FROM_EMAIL || 'noreply@airalabel.com';
 const EMAIL_SENDING_ENABLED = false;
 
 export type EmailTemplate =
@@ -181,7 +181,7 @@ function buildEmailHtml(template: EmailTemplate, data: Record<string, unknown>):
       return `
         <div style="${containerStyle}">
           <div style="${cardStyle}">
-            <h1 style="margin: 0 0 20px 0; color: #1f2937;">Welcome to Zhilakaii!</h1>
+            <h1 style="margin: 0 0 20px 0; color: #1f2937;">Welcome to Airalabel!</h1>
             <p>Hi ${customerName},</p>
             <p>Your account has been created successfully. You're now ready to start browsing and ordering.</p>
             
@@ -236,7 +236,7 @@ function buildEmailHtml(template: EmailTemplate, data: Record<string, unknown>):
       return `
         <div style="${containerStyle}">
           <div style="${cardStyle}">
-            <h1 style="margin: 0 0 20px 0; color: #1f2937;">${subject || 'Zhilakaii Update'}</h1>
+            <h1 style="margin: 0 0 20px 0; color: #1f2937;">${subject || 'Airalabel Update'}</h1>
             ${customerName ? `<p>Hi ${customerName},</p>` : ''}
             <p style="white-space: pre-wrap; line-height: 1.6; color: #334155;">${message}</p>
             <p style="margin-top: 20px; color: #64748b; font-size: 14px;">Zhilakaii Team</p>

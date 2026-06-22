@@ -26,7 +26,7 @@ export default function BranchesPage() {
       <div className="space-y-5 pb-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="text-2xl font-bold text-gray-900 sm:text-3xl">Branches & Store Settings</h1>
-          <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-gray-800 hover:shadow-md sm:px-6 sm:py-3">
+          <button className="inline-flex items-center justify-center gap-2 rounded-lg bg-pink-600 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-pink-700 hover:shadow-md sm:px-6 sm:py-3">
             <FiPlus size={20} /> Add Branch
           </button>
         </div>

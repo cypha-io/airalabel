@@ -127,7 +127,7 @@ export default function SupportAdmin() {
                 addToast('Refreshed', 'info');
               })();
             }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-black text-white rounded-xl text-sm font-bold shadow-sm hover:opacity-95"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-xl text-sm font-bold shadow-sm hover:opacity-95"
           >
             Refresh
           </button>
@@ -201,7 +201,7 @@ export default function SupportAdmin() {
                       <div className="ml-2 flex items-center gap-2">
                         <button
                           onClick={() => updateStatus(m.id, confirmChange.status)}
-                          className="px-2 py-1 bg-black text-white rounded-xl text-sm font-bold"
+                          className="px-2 py-1 bg-pink-600 text-white rounded-xl text-sm font-bold"
                         >
                           Confirm
                         </button>

@@ -64,7 +64,7 @@ export default function StaffManagement() {
           <h1 className="text-3xl font-bold text-gray-900">Staff Management</h1>
           <p className="text-gray-600 text-sm mt-1">Manage staff, schedules, and performance metrics</p>
         </div>
-        <button onClick={() => setShowModal(true)} className="px-6 py-3 bg-black text-white rounded-lg font-bold hover:bg-gray-800 transition-colors flex items-center gap-2">
+        <button onClick={() => setShowModal(true)} className="px-6 py-3 bg-pink-600 text-white rounded-lg font-bold hover:bg-pink-700 transition-colors flex items-center gap-2">
           <FiPlus size={20} />
           Add Staff Member
         </button>

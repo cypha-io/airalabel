@@ -97,7 +97,7 @@ export default function Promotions() {
         </div>
         <button
           onClick={() => setShowAddPromo(true)}
-          className="px-6 py-3 bg-black text-white rounded-lg font-bold hover:bg-gray-800 transition-colors flex items-center gap-2"
+          className="px-6 py-3 bg-pink-600 text-white rounded-lg font-bold hover:bg-pink-700 transition-colors flex items-center gap-2"
         >
           <FiPlus size={20} />
           New Promo

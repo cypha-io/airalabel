@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { id } = await params;
   const product = await getProduct(id);
   if (product) {
-    const fallbackDescription = 'Discover this Zhilakaii piece inspired by celestial elegance and radiant beauty.';
+    const fallbackDescription = 'Discover this Airalabel product.';
     const productDescription = (product.description || '').trim() || fallbackDescription;
     const primaryImage = product.image || product.imageUrls?.[0] || '/logo.png';
 

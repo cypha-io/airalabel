@@ -79,7 +79,7 @@ export default function OutOfStockManager() {
         <FiAlertCircle size={18} />
         <span>Out of Stock</span>
         {items.length > 0 && (
-          <span className="ml-1 px-2 py-0.5 bg-black text-white rounded-full text-xs font-black">
+          <span className="ml-1 px-2 py-0.5 bg-pink-600 text-white rounded-full text-xs font-black">
             {items.length}
           </span>
         )}
