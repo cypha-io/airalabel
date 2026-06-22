@@ -30,7 +30,7 @@ const DEFAULT_SETTINGS: Settings = {
     'Airalabel: Order {orderNumber} confirmed. Payment received. Total GHc{total}. We will notify you when status changes.',
   smsOrderStatusTemplate: 'Airalabel: Your order {orderNumber} status is now {status}.',
   smsNewOrderAdminTemplate:
-    'Zhilakaii: New paid order {orderNumber} from {customerName} ({city}). Total GHc{total}.',
+    'Airalabel: New paid order {orderNumber} from {customerName} ({city}). Total GHc{total}.',
 };
 
 function normalizeSettings(input: Partial<Settings> | null | undefined): Settings {

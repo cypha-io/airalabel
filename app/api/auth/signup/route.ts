@@ -48,8 +48,8 @@ export async function POST(request: Request) {
 
     const result = await client.query(
       `
-      INSERT INTO "UserProfile" ("fullName", phone, role, "passwordHash", email, address, city)
-      VALUES ($1, $2, 'user', $3, $4, $5, $6)
+      INSERT INTO "UserProfile" ("fullName", phone, role, "passwordHash", email, address, city, "updatedAt")
+      VALUES ($1, $2, 'user', $3, $4, $5, $6, CURRENT_TIMESTAMP)
       ON CONFLICT (phone)
       DO UPDATE SET
         "fullName" = EXCLUDED."fullName",
@@ -78,7 +78,7 @@ export async function POST(request: Request) {
     if (user.email) {
       await sendEmail({
         to: user.email,
-        subject: 'Welcome to Zhilakaii!',
+        subject: 'Welcome to Airalabel!',
         template: 'signup_welcome',
         data: {
           customerName: user.fullName,

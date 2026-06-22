@@ -138,8 +138,8 @@ function buildEmailHtml(template: EmailTemplate, data: Record<string, unknown>):
             <p style="margin-top: 20px; color: #666; font-size: 14px;">Thank you for your order!</p>
           </div>
           <div style="${footerStyle}">
-            <p>Zhilakaii © ${new Date().getFullYear()}</p>
-            <p>support@zhilakaii.com</p>
+            <p>Airalabel © ${new Date().getFullYear()}</p>
+            <p>support@airalabel.com</p>
           </div>
         </div>
       `;
@@ -166,7 +166,7 @@ function buildEmailHtml(template: EmailTemplate, data: Record<string, unknown>):
             <p style="margin-top: 20px; color: #666; font-size: 14px;">This link expires in 10 minutes. If you didn't request this, you can safely ignore this email.</p>
           </div>
           <div style="${footerStyle}">
-            <p>Zhilakaii © ${new Date().getFullYear()}</p>
+            <p>Airalabel © ${new Date().getFullYear()}</p>
           </div>
         </div>
       `;
@@ -190,8 +190,8 @@ function buildEmailHtml(template: EmailTemplate, data: Record<string, unknown>):
             <p style="margin-top: 20px;">If you have any questions, feel free to reach out to our support team.</p>
           </div>
           <div style="${footerStyle}">
-            <p>Zhilakaii © ${new Date().getFullYear()}</p>
-            <p>support@zhilakaii.com</p>
+            <p>Airalabel © ${new Date().getFullYear()}</p>
+            <p>support@airalabel.com</p>
           </div>
         </div>
       `;
@@ -220,7 +220,7 @@ function buildEmailHtml(template: EmailTemplate, data: Record<string, unknown>):
             <p style="margin-top: 20px;">Your order will be prepared and delivered soon.</p>
           </div>
           <div style="${footerStyle}">
-            <p>Zhilakaii © ${new Date().getFullYear()}</p>
+            <p>Airalabel © ${new Date().getFullYear()}</p>
           </div>
         </div>
       `;
@@ -239,11 +239,11 @@ function buildEmailHtml(template: EmailTemplate, data: Record<string, unknown>):
             <h1 style="margin: 0 0 20px 0; color: #1f2937;">${subject || 'Airalabel Update'}</h1>
             ${customerName ? `<p>Hi ${customerName},</p>` : ''}
             <p style="white-space: pre-wrap; line-height: 1.6; color: #334155;">${message}</p>
-            <p style="margin-top: 20px; color: #64748b; font-size: 14px;">Zhilakaii Team</p>
+            <p style="margin-top: 20px; color: #64748b; font-size: 14px;">Airalabel Team</p>
           </div>
           <div style="${footerStyle}">
-            <p>Zhilakaii © ${new Date().getFullYear()}</p>
-            <p>support@zhilakaii.com</p>
+            <p>Airalabel © ${new Date().getFullYear()}</p>
+            <p>support@airalabel.com</p>
           </div>
         </div>
       `;

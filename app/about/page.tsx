@@ -9,11 +9,11 @@ export default function AboutPage() {
       <Navbar />
       
       <main className="max-w-4xl mx-auto px-4 md:px-6 py-6 md:py-12 mb-20 md:mb-0">
-        <h1 className="text-3xl md:text-5xl font-black text-gray-800 mb-4 md:mb-8 text-center">About Zhilakaii</h1>
+        <h1 className="text-3xl md:text-5xl font-black text-gray-800 mb-4 md:mb-8 text-center">About Airalabel</h1>
 
         <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200 space-y-6">
           <p className="text-lg text-gray-700 leading-relaxed">
-            Inspired by the phrase Sparkling Heaven, Zhilakaii embodies celestial elegance and radiant beauty. Our jewelry pieces are crafted to sparkle like the stars, illuminating your unique style and personality.
+            Inspired by the phrase Sparkling Heaven, Airalabel embodies celestial elegance and radiant beauty. Our jewelry pieces are crafted to sparkle like the stars, illuminating your unique style and personality.
           </p>
 
           <h2 className="text-3xl font-black text-gray-800 mt-8">Our Mission</h2>

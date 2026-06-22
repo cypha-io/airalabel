@@ -23,7 +23,7 @@ const DEFAULT_SMS_TEMPLATES: SmsTemplates = {
     'Airalabel: Order {orderNumber} confirmed. Payment received. Total GHc{total}. We will notify you when status changes.',
   smsOrderStatusTemplate: 'Airalabel: Your order {orderNumber} status is now {status}.',
   smsNewOrderAdminTemplate:
-    'Airalabel: New paid order {orderNumber} from {customerName} ({city}). Total GHc{total}.',,
+    'Airalabel: New paid order {orderNumber} from {customerName} ({city}). Total GHc{total}.',
 };
 
 function applySmsTemplate(template: string, values: Record<string, string>) {

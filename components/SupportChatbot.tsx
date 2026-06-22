@@ -85,7 +85,7 @@ export default function SupportChatbot() {
       {
         id: 'welcome-1',
         sender: 'bot',
-        text: 'Greetings! I am Aria, your Zhilakaii Celestial Assistant. ✨',
+        text: 'Greetings! I am Aria, your Airalabel Celestial Assistant. ✨',
         timestamp: new Date(),
       },
       {
@@ -200,7 +200,7 @@ export default function SupportChatbot() {
       );
     } else if (action === 'sizing_care') {
       addBotMessage(
-        'Zhilakaii pieces are crafted with premium materials to sparkle like the stars. Here are some care recommendations:\n\n✨ **Diamond Care**: Gently clean with warm water and mild soap using a soft brush.\n✨ **Ring Sizing**: Use a flexible sizing tape or visit a local jeweler. Ring sizes vary by finger and climate.\n✨ **Plating Protection**: Avoid wearing fine jewelry in chlorine pools or when applying lotions/perfumes.',
+        'Airalabel pieces are crafted with premium materials to sparkle like the stars. Here are some care recommendations:\n\n✨ **Diamond Care**: Gently clean with warm water and mild soap using a soft brush.\n✨ **Ring Sizing**: Use a flexible sizing tape or visit a local jeweler. Ring sizes vary by finger and climate.\n✨ **Plating Protection**: Avoid wearing fine jewelry in chlorine pools or when applying lotions/perfumes.',
         1200,
         INITIAL_OPTIONS
       );
@@ -266,7 +266,7 @@ export default function SupportChatbot() {
       );
     } else if (lower.includes('return') || lower.includes('refund') || lower.includes('warranty')) {
       addBotMessage(
-        '💎 **Zhilakaii Guarantee**:\n\nWe offer a premium 14-day warranty on all handcrafted pieces. If the sparkle is not exactly as you envisioned, we provide custom adjustments or seamless returns on unworn items.\n\nPlease contact our concierge team or leave a message to initialize a request.',
+        '💎 **Airalabel Guarantee**:\n\nWe offer a premium 14-day warranty on all handcrafted pieces. If the sparkle is not exactly as you envisioned, we provide custom adjustments or seamless returns on unworn items.\n\nPlease contact our concierge team or leave a message to initialize a request.',
         1200,
         [
           { label: '💬 Message Stylist', action: 'stylist_form' },
@@ -824,7 +824,7 @@ export default function SupportChatbot() {
           {view !== 'chat' && (
             <div className="bg-gray-50/80 border-t border-gray-100 p-3 flex justify-center shrink-0">
               <span className="text-[10px] font-bold text-gray-400 tracking-widest uppercase">
-                Powered by Zhilakaii
+                Powered by Airalabel
               </span>
             </div>
           )}

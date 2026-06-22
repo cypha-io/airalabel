@@ -16,10 +16,10 @@ export default function Hero() {
             Welcome to <span className="text-pink-600">Airalabel</span>
           </h1>
           <p className="text-xl md:text-2xl font-semibold max-w-3xl mx-auto text-gray-700">
-            Premium Label Solutions
+            Trendy Girls Fashion & Clothing
           </p>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
-            Jewelry crafted to sparkle like the stars and illuminate your unique style
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-600">
+            Discover stylish dresses, tops, and outfits for every occasion. Elevate your wardrobe with Airalabel's latest fashion collection.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">

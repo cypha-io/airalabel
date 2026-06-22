@@ -413,14 +413,14 @@ export default function AccountPage() {
 
       <main className="mx-auto max-w-6xl px-4 py-10 pt-24 sm:px-6 sm:py-14 md:pt-32">
         <div className="mb-10 flex flex-col items-center">
-          <span className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-black md:text-sm">Welcome</span>
+          <span className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-pink-600 md:text-sm">Welcome</span>
           <h1 className="text-3xl font-black tracking-tight text-gray-800 sm:text-4xl md:text-5xl">My Account</h1>
-          <div className="mt-6 mb-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-black to-gray-900 shadow-sm" />
+          <div className="mt-6 mb-4 h-1.5 w-16 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 shadow-sm" />
           <p className="text-gray-500 font-medium text-center">Secure access with your phone number.</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
-          <div className="rounded-[2.5rem] bg-gradient-to-br from-black to-gray-900 p-8 text-white shadow-xl shadow-none md:p-10">
+          <div className="rounded-[2.5rem] bg-gradient-to-br from-pink-500 to-pink-600 p-8 text-white shadow-xl shadow-none md:p-10">
             <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-center">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/20 shadow-inner backdrop-blur-md">
                 <FiPhone className="text-3xl drop-shadow-md" />
@@ -473,13 +473,13 @@ export default function AccountPage() {
                     pattern="0[0-9]{9}"
                     maxLength={10}
                     placeholder="0XXXXXXXXX"
-                    className="w-full rounded-[1.5rem] bg-gray-50 py-4 pl-12 pr-5 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                    className="w-full rounded-[1.5rem] bg-gray-50 py-4 pl-12 pr-5 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                   />
                 </div>
                 <button
                   onClick={lookupPhone}
                   disabled={loading}
-                  className="mt-8 w-full rounded-[2rem] bg-gradient-to-r from-black to-gray-900 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
+                  className="mt-8 w-full rounded-[2rem] bg-gradient-to-r from-pink-500 to-pink-600 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
                 >
                   {loading ? 'Checking...' : 'Continue'}
                 </button>
@@ -497,12 +497,12 @@ export default function AccountPage() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Enter password"
-                      className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                      className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                     />
                     <button
                       onClick={login}
                       disabled={loading}
-                      className="mt-8 w-full rounded-[2rem] bg-gradient-to-r from-black to-gray-900 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
+                      className="mt-8 w-full rounded-[2rem] bg-gradient-to-r from-pink-500 to-pink-600 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
                     >
                       {loading ? 'Signing in...' : 'Sign In'}
                     </button>
@@ -516,7 +516,7 @@ export default function AccountPage() {
                         setAuthError('');
                         setAuthSuccess('');
                       }}
-                      className="mt-4 w-full rounded-[2rem] bg-white py-4 text-sm font-bold text-black transition-all hover:bg-white"
+                      className="mt-4 w-full rounded-[2rem] bg-white py-4 text-sm font-bold text-pink-600 transition-all hover:bg-white"
                     >
                       Forgot password?
                     </button>
@@ -531,7 +531,7 @@ export default function AccountPage() {
                         <button
                           onClick={requestResetCode}
                           disabled={loading}
-                          className="mt-2 w-full rounded-[2rem] bg-gradient-to-r from-black to-gray-900 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
+                          className="mt-2 w-full rounded-[2rem] bg-gradient-to-r from-pink-500 to-pink-600 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
                         >
                           {loading ? 'Sending code...' : 'Send verification code'}
                         </button>
@@ -560,14 +560,14 @@ export default function AccountPage() {
                               inputMode="numeric"
                               autoComplete="one-time-code"
                               maxLength={1}
-                              className="h-14 w-full rounded-xl bg-gray-50 text-center text-lg font-black text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                              className="h-14 w-full rounded-xl bg-gray-50 text-center text-lg font-black text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                             />
                           ))}
                         </div>
                         <button
                           onClick={verifyResetCode}
                           disabled={loading}
-                          className="mt-4 w-full rounded-[2rem] bg-gradient-to-r from-black to-gray-900 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
+                          className="mt-4 w-full rounded-[2rem] bg-gradient-to-r from-pink-500 to-pink-600 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
                         >
                           {loading ? 'Verifying...' : 'Verify code'}
                         </button>
@@ -590,7 +590,7 @@ export default function AccountPage() {
                           value={newPassword}
                           onChange={(e) => setNewPassword(e.target.value)}
                           placeholder="New password (min 6 chars)"
-                          className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                          className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                         />
                         <label className="mb-2 mt-4 block text-xs font-black uppercase tracking-wider text-gray-500" htmlFor="confirmNewPassword">Confirm Password</label>
                         <input
@@ -599,12 +599,12 @@ export default function AccountPage() {
                           value={confirmNewPassword}
                           onChange={(e) => setConfirmNewPassword(e.target.value)}
                           placeholder="Re-enter new password"
-                          className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                          className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                         />
                         <button
                           onClick={resetPassword}
                           disabled={loading}
-                          className="mt-4 w-full rounded-[2rem] bg-gradient-to-r from-black to-gray-900 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
+                          className="mt-4 w-full rounded-[2rem] bg-gradient-to-r from-pink-500 to-pink-600 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
                         >
                           {loading ? 'Resetting password...' : 'Reset password'}
                         </button>
@@ -655,48 +655,48 @@ export default function AccountPage() {
                     value={profile.fullName}
                     onChange={(e) => setProfile(prev => ({ ...prev, fullName: e.target.value }))}
                     placeholder="Full name"
-                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                   />
                   <input
                     type="email"
                     value={profile.email}
                     onChange={(e) => setProfile(prev => ({ ...prev, email: e.target.value }))}
                     placeholder="Email (optional)"
-                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                   />
                   <input
                     type="text"
                     value={profile.address}
                     onChange={(e) => setProfile(prev => ({ ...prev, address: e.target.value }))}
                     placeholder="Address (optional)"
-                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                   />
                   <input
                     type="text"
                     value={profile.city}
                     onChange={(e) => setProfile(prev => ({ ...prev, city: e.target.value }))}
                     placeholder="City"
-                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                   />
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Create password (min 6 chars)"
-                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-black"
+                    className="w-full rounded-[1.5rem] bg-gray-50 px-5 py-4 text-sm font-bold text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all focus:outline-none focus:ring-2 focus:ring-pink-500"
                   />
                 </div>
                 <button
                   onClick={signup}
                   disabled={loading}
-                  className="mt-8 w-full rounded-[2rem] bg-gradient-to-r from-black to-gray-900 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
+                  className="mt-8 w-full rounded-[2rem] bg-gradient-to-r from-pink-500 to-pink-600 py-4 text-base font-black text-white shadow-lg shadow-none transition-all duration-300 hover:scale-[1.02] hover:shadow-none disabled:scale-100 disabled:opacity-60"
                 >
                   {loading ? 'Creating account...' : 'Create Account'}
                 </button>
               </>
             )}
 
-            {authError && <p className="mt-3 text-sm font-semibold text-black">{authError}</p>}
+            {authError && <p className="mt-3 text-sm font-semibold text-pink-600">{authError}</p>}
             {authSuccess && <p className="mt-3 text-sm font-semibold text-gray-600">{authSuccess}</p>}
 
             <p className="text-xs text-gray-500 mt-4">
@@ -704,7 +704,7 @@ export default function AccountPage() {
             </p>
 
             <div className="mt-8 flex justify-center border-t border-gray-100 pt-6">
-              <Link href="/" className="text-sm font-bold text-gray-500 transition-colors hover:text-black">
+              <Link href="/" className="text-sm font-bold text-gray-500 transition-colors hover:text-pink-600">
                 &larr; Back to home
               </Link>
             </div>

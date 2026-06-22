@@ -23,18 +23,18 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://airalabel.com'),
   title: {
-    template: '%s | Airalabel',
-    default: 'Airalabel',
+    template: '%s | Airalabel - Girls Fashion & Clothing',
+    default: 'Airalabel - Trendy Girls Clothing & Fashion',
   },
-  description: "Airalabel - Your premium label solution for excellence and innovation.",
+  description: "Airalabel - Shop stylish girls clothing, dresses, tops, and fashion essentials. Discover trendy outfits for every occasion. Fast shipping and quality styles.",
   icons: {
     icon: "/logo-square.png",
     shortcut: "/logo-square.png",
     apple: "/logo-square.png",
   },
   openGraph: {
-    title: "Airalabel",
-    description: "Airalabel - Your premium label solution for excellence and innovation.",
+    title: "Airalabel - Trendy Girls Clothing & Fashion",
+    description: "Shop stylish girls clothing, dresses, tops, and fashion essentials at Airalabel. Discover trendy outfits for every occasion with fast shipping.",
     url: "https://airalabel.com",
     siteName: "Airalabel",
     images: [
@@ -50,14 +50,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Airalabel",
-    description: "Airalabel - Your premium label solution for excellence and innovation.",
+    title: "Airalabel - Girls Fashion & Clothing",
+    description: "Shop trendy girls clothing and fashion essentials at Airalabel. Quality styles for every occasion.",
     images: ["/logo.png"],
   },
 };
 
 import BackToTop from "@/components/BackToTop";
-import SupportChatbot from "@/components/SupportChatbot";
 
 export default function RootLayout({
   children,
@@ -72,7 +71,6 @@ export default function RootLayout({
         <SplashScreen />
         {children}
         <BackToTop />
-        <SupportChatbot />
       </body>
     </html>
   );

@@ -23,13 +23,13 @@ export default function Footer() {
               <Image 
                 src="/logo.png" 
                 alt="Airalabel Logo" 
-                width={50} 
-                height={50}
+                width={70} 
+                height={70}
                 className="rounded-lg"
               />
             </Link>
             <p className="text-gray-700 text-sm md:text-base">
-              Airalabel provides premium label solutions for excellence and innovation in your business.
+              Discover trendy girls clothing and fashion essentials at Airalabel. Shop stylish dresses, tops, and outfits for every occasion.
             </p>
             <div className="flex justify-center gap-4 pt-1">
               {SOCIALS.map((social) => (

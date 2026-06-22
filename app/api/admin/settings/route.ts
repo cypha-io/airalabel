@@ -20,12 +20,12 @@ const DEFAULT_SETTINGS: AdminSettings = {
   orderNotifications: true,
   allowCashOnDelivery: true,
   lowStockThreshold: 5,
-  supportEmail: 'support@zhilakaii.com',
+  supportEmail: 'support@airalabel.com',
   smsOrderConfirmationTemplate:
-    'Zhilakaii: Order {orderNumber} confirmed. Payment received. Total GHc{total}. We will notify you when status changes.',
-  smsOrderStatusTemplate: 'Zhilakaii: Your order {orderNumber} status is now {status}.',
+    'Airalabel: Order {orderNumber} confirmed. Payment received. Total GHc{total}. We will notify you when status changes.',
+  smsOrderStatusTemplate: 'Airalabel: Your order {orderNumber} status is now {status}.',
   smsNewOrderAdminTemplate:
-    'Zhilakaii: New paid order {orderNumber} from {customerName} ({city}). Total GHc{total}.',
+    'Airalabel: New paid order {orderNumber} from {customerName} ({city}). Total GHc{total}.',
 };
 
 async function requireAdmin(request: Request) {

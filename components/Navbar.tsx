@@ -65,9 +65,9 @@ export default function Navbar() {
                 <Image
                   src="/logo.png"
                   alt="Airalabel Logo"
-                  width={64}
-                  height={64}
-                  className="md:w-[72px] md:h-[72px] object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-md"
+                  width={80}
+                  height={80}
+                  className="md:w-[96px] md:h-[96px] object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-md"
                 />
               </Link>
             </div>
@@ -238,11 +238,11 @@ export default function Navbar() {
             {pathname === '/' ? (
               <>
                 <div className="absolute -top-3 flex flex-col items-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-xl">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-600 text-white shadow-xl">
                     <HiHome className="text-2xl drop-shadow-sm" />
                   </div>
                 </div>
-                <span className="absolute bottom-1.5 text-[10px] font-black text-black">Home</span>
+                <span className="absolute bottom-1.5 text-[10px] font-black text-pink-600">Home</span>
               </>
             ) : (
               <>
@@ -263,7 +263,7 @@ export default function Navbar() {
                     <HiSquares2X2 className="text-2xl drop-shadow-sm" />
                   </div>
                 </div>
-                <span className="absolute bottom-1.5 text-[10px] font-black text-black">Shop</span>
+                <span className="absolute bottom-1.5 text-[10px] font-black text-pink-600">Shop</span>
               </>
             ) : (
               <>
@@ -289,7 +289,7 @@ export default function Navbar() {
                     )}
                   </div>
                 </div>
-                <span className="absolute bottom-1.5 text-[10px] font-black text-black">Cart</span>
+                <span className="absolute bottom-1.5 text-[10px] font-black text-pink-600">Cart</span>
               </>
             ) : (
               <>
@@ -317,7 +317,7 @@ export default function Navbar() {
                     <HiClock className="text-2xl drop-shadow-sm" />
                   </div>
                 </div>
-                <span className="absolute bottom-1.5 text-[10px] font-black text-black">History</span>
+                <span className="absolute bottom-1.5 text-[10px] font-black text-pink-600">History</span>
               </>
             ) : (
               <>
@@ -338,7 +338,7 @@ export default function Navbar() {
                     <HiMagnifyingGlass className="text-2xl drop-shadow-sm stroke-[2px]" />
                   </div>
                 </div>
-                <span className="absolute bottom-1.5 text-[10px] font-black text-black">Track</span>
+                <span className="absolute bottom-1.5 text-[10px] font-black text-pink-600">Track</span>
               </>
             ) : (
               <>
