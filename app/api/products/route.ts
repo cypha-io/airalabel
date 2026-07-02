@@ -294,7 +294,7 @@ export async function POST(request: Request) {
     invalidateApiCacheByPrefix('products:');
     invalidateApiCacheByPrefix('categories:');
     invalidateApiCacheByPrefix('variation-presets:');
-    emitRealtimeEvent({ channel: 'products', action: 'created', id: createdProduct.id });
+    emitRealtimeEvent({ channel: 'products', action: 'created', id: createdProduct.id as string });
 
     return Response.json(createdProduct, { status: 201 });
   } catch (error) {
