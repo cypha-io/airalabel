@@ -4,6 +4,7 @@ type QueryableClient = {
 
 const CATEGORY_SYNC_COOLDOWN_MS = 30_000;
 let lastCategorySyncAt = 0;
+let categoryTableColumnsPromise: Promise<Set<string>> | null = null;
 
 export function makeCategorySlug(input: string) {
   return input
@@ -18,6 +19,27 @@ function normalizeImageUrl(value: unknown) {
   if (typeof value !== 'string') return null;
   const trimmed = value.trim();
   return trimmed || null;
+}
+
+async function getCategoryTableColumns(client: QueryableClient) {
+  if (!categoryTableColumnsPromise) {
+    categoryTableColumnsPromise = client
+      .query(
+        `
+        SELECT column_name
+        FROM information_schema.columns
+        WHERE table_schema = CURRENT_SCHEMA()
+          AND table_name = 'Category'
+        `
+      )
+      .then(result => new Set(result.rows.map(row => String(row.column_name))))
+      .catch(error => {
+        categoryTableColumnsPromise = null;
+        throw error;
+      });
+  }
+
+  return categoryTableColumnsPromise;
 }
 
 async function findLatestProductImageForCategory(client: QueryableClient, categoryName: string) {
@@ -78,17 +100,78 @@ export async function ensureCategoryExists(client: QueryableClient, categoryName
   if (!slug) return;
   const seededImage = normalizeImageUrl(preferredImageUrl) ?? (await findLatestProductImageForCategory(client, name));
 
+  const columns = await getCategoryTableColumns(client);
+  const hasSlug = columns.has('slug');
+  const hasImageUrl = columns.has('imageUrl');
+  const hasUpdatedAt = columns.has('updatedAt');
+
+  if (!hasSlug) {
+    const existing = await client.query(
+      `
+      SELECT id
+      FROM "Category"
+      WHERE LOWER(name) = LOWER($1)
+      LIMIT 1
+      `,
+      [name]
+    );
+
+    if (existing.rows.length > 0) {
+      if (hasImageUrl && seededImage) {
+        await client.query(
+          `
+          UPDATE "Category"
+          SET "imageUrl" = COALESCE("imageUrl", $2)
+          WHERE id = $1
+          `,
+          [existing.rows[0].id, seededImage]
+        );
+      }
+
+      return;
+    }
+
+    const insertColumns = ['name'];
+    const insertValues: unknown[] = [name];
+
+    if (hasImageUrl) {
+      insertColumns.push('imageUrl');
+      insertValues.push(seededImage);
+    }
+
+    const placeholders = insertValues.map((_, index) => `$${index + 1}`);
+
+    await client.query(
+      `
+      INSERT INTO "Category" (${insertColumns.join(', ')})
+      VALUES (${placeholders.join(', ')})
+      `,
+      insertValues
+    );
+
+    return;
+  }
+
+  const insertColumns = hasImageUrl ? ['name', 'slug', 'imageUrl'] : ['name', 'slug'];
+  const insertPlaceholders = hasImageUrl ? ['$1', '$2', '$3'] : ['$1', '$2'];
+  const updateAssignments = ['name = EXCLUDED.name'];
+
+  if (hasImageUrl) {
+    updateAssignments.push('"imageUrl" = COALESCE("Category"."imageUrl", EXCLUDED."imageUrl")');
+  }
+
+  if (hasUpdatedAt) {
+    updateAssignments.push('"updatedAt" = CURRENT_TIMESTAMP');
+  }
+
   await client.query(
     `
-    INSERT INTO "Category" (name, slug, "imageUrl")
-    VALUES ($1, $2, $3)
+    INSERT INTO "Category" (${insertColumns.map(column => `"${column}"`).join(', ')})
+    VALUES (${insertPlaceholders.join(', ')})
     ON CONFLICT (slug)
-    DO UPDATE SET
-      name = EXCLUDED.name,
-      "imageUrl" = COALESCE("Category"."imageUrl", EXCLUDED."imageUrl"),
-      "updatedAt" = CURRENT_TIMESTAMP
+    DO UPDATE SET ${updateAssignments.join(', ')}
     `,
-    [name, slug, seededImage]
+    hasImageUrl ? [name, slug, seededImage] : [name, slug]
   );
 }
 

@@ -32,6 +32,62 @@ type ProductInput = {
   }>;
 };
 
+let productTableColumnsPromise: Promise<Set<string>> | null = null;
+
+async function getProductTableColumns(client: { query: (text: string, values?: unknown[]) => Promise<{ rows: Array<{ column_name: string }> }> }) {
+  if (!productTableColumnsPromise) {
+    productTableColumnsPromise = client
+      .query(
+        `
+        SELECT column_name
+        FROM information_schema.columns
+        WHERE table_schema = CURRENT_SCHEMA()
+          AND table_name = 'Product'
+        `
+      )
+      .then(result => new Set(result.rows.map(row => row.column_name)))
+      .catch(error => {
+        productTableColumnsPromise = null;
+        throw error;
+      });
+  }
+
+  return productTableColumnsPromise;
+}
+
+async function insertProductRow(
+  client: { query: (text: string, values?: unknown[]) => Promise<{ rows: Array<{ [key: string]: unknown }> }> },
+  values: Record<string, unknown>
+) {
+  const columns = await getProductTableColumns(client as { query: (text: string, values?: unknown[]) => Promise<{ rows: Array<{ column_name: string }> }> });
+  const insertColumns: string[] = [];
+  const insertValues: unknown[] = [];
+
+  for (const [column, value] of Object.entries(values)) {
+    if (!columns.has(column)) {
+      continue;
+    }
+
+    insertColumns.push(`"${column}"`);
+    insertValues.push(value);
+  }
+
+  if (insertColumns.length === 0) {
+    throw new Error('Product table has no compatible columns for insert.');
+  }
+
+  const placeholders = insertValues.map((_, index) => `$${index + 1}`);
+
+  return client.query(
+    `
+    INSERT INTO "Product" (${insertColumns.join(', ')})
+    VALUES (${placeholders.join(', ')})
+    RETURNING *
+    `,
+    insertValues
+  );
+}
+
 async function requireAdmin(request: Request) {
   const token = parseCookie(request.headers.get('cookie'), 'wf_session');
   if (!token) {
@@ -75,6 +131,12 @@ export async function GET(request: Request) {
     const products = await withApiCache(cacheKey, 30_000, async () => {
       let client;
       try {
+        client = await pool.connect();
+        const productTableColumns = await getProductTableColumns(client);
+        const remainingStockSelect = productTableColumns.has('stock')
+          ? 'p.stock AS "remainingStock"'
+          : 'NULL AS "remainingStock"';
+
         let query = `
           SELECT
             p.*,
@@ -83,7 +145,7 @@ export async function GET(request: Request) {
               FROM "OrderItem" oi
               WHERE oi."productId" = p.id
             ), 0) AS "soldQuantity",
-            p.stock AS "remainingStock"
+            ${remainingStockSelect}
           FROM "Product" p
         `;
 
@@ -98,7 +160,6 @@ export async function GET(request: Request) {
           query += ` LIMIT $${values.length}`;
         }
 
-        client = await pool.connect();
         const result = await client.query(query, values);
         return result.rows;
       } finally {
@@ -152,7 +213,6 @@ export async function POST(request: Request) {
       : [];
     const productImage = normalizedImageUrls[0] || body.image.trim();
 
-    let result;
     const normalizedVariations = Array.isArray(body.variations)
       ? body.variations.flatMap(variation => {
           const variationName = variation?.name?.trim();
@@ -213,50 +273,22 @@ export async function POST(request: Request) {
 
     await ensureCategoryExists(client, normalizedCategory, productImage);
 
-    try {
-      result = await client.query(
-        `
-        INSERT INTO "Product" (name, price, image, "imageUrls", category, description, "isFeatured", "regularPrice", "salePrice", "hasVariations", variations, stock, "showStockOnProductPage")
-        VALUES ($1, $2, $3, $4::jsonb, $5, $6, $7, $8, $9, $10, $11::jsonb, $12, $13)
-        RETURNING *
-        `,
-        [
-          body.name.trim(),
-          finalPrice,
-          productImage,
-          JSON.stringify(normalizedImageUrls.length > 0 ? normalizedImageUrls : [productImage]),
-          normalizedCategory,
-          body.description?.trim() || null,
-          Boolean(body.isFeatured),
-          regularPrice,
-          salePrice,
-          Boolean(body.hasVariations),
-          JSON.stringify(normalizedVariations),
-          stock,
-          showStockOnProductPage,
-        ]
-      );
-    } catch (error) {
-      if ((error as { code?: string }).code !== '42703') {
-        throw error;
-      }
-
-      result = await client.query(
-        `
-        INSERT INTO "Product" (name, price, image, category, description, "isFeatured")
-        VALUES ($1, $2, $3, $4, $5, $6)
-        RETURNING *
-        `,
-        [
-          body.name.trim(),
-          finalPrice,
-          productImage,
-          normalizedCategory,
-          body.description?.trim() || null,
-          Boolean(body.isFeatured),
-        ]
-      );
-    }
+    const result = await insertProductRow(client, {
+      name: body.name.trim(),
+      price: finalPrice,
+      image: productImage,
+      imageUrls: JSON.stringify(normalizedImageUrls.length > 0 ? normalizedImageUrls : [productImage]),
+      category: normalizedCategory,
+      description: body.description?.trim() || null,
+      isFeatured: Boolean(body.isFeatured),
+      regularPrice,
+      salePrice,
+      hasVariations: Boolean(body.hasVariations),
+      variations: JSON.stringify(normalizedVariations),
+      stock,
+      showStockOnProductPage,
+      updatedAt: new Date(),
+    });
 
     const createdProduct = result.rows[0];
     invalidateApiCacheByPrefix('products:');

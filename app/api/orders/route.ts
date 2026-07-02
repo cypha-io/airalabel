@@ -146,7 +146,8 @@ function normalizeVariationToken(value: unknown): string {
 }
 
 function normalizeStockNumber(value: unknown): number | null {
-  const parsed = typeof value === 'number' ? value : Number(String(value ?? '').trim());
+  if (value === null || value === undefined || value === '') return null;
+  const parsed = typeof value === 'number' ? value : Number(String(value).trim());
   if (!Number.isFinite(parsed)) {
     return null;
   }
@@ -641,22 +642,18 @@ export async function POST(request: Request) {
       }
 
       const availableVariationStock = getVariationStockValue(variations[variationIndex]);
-      if (typeof availableVariationStock !== 'number') {
-        await client.query('ROLLBACK');
-        transactionStarted = false;
-        return Response.json({ error: 'Variation stock is unavailable for one or more selected items.' }, { status: 400 });
-      }
+      if (availableVariationStock !== null) {
+        if (availableVariationStock <= 0) {
+          await client.query('ROLLBACK');
+          transactionStarted = false;
+          return Response.json({ error: 'One or more selected variations are out of stock.' }, { status: 400 });
+        }
 
-      if (availableVariationStock <= 0) {
-        await client.query('ROLLBACK');
-        transactionStarted = false;
-        return Response.json({ error: 'One or more selected variations are out of stock.' }, { status: 400 });
-      }
-
-      if (requestEntry.quantity > availableVariationStock) {
-        await client.query('ROLLBACK');
-        transactionStarted = false;
-        return Response.json({ error: 'Requested quantity exceeds available stock for one or more selected variations.' }, { status: 400 });
+        if (requestEntry.quantity > availableVariationStock) {
+          await client.query('ROLLBACK');
+          transactionStarted = false;
+          return Response.json({ error: 'Requested quantity exceeds available stock for one or more selected variations.' }, { status: 400 });
+        }
       }
     }
 
@@ -664,8 +661,8 @@ export async function POST(request: Request) {
     const orderInsert = await client.query(
       `
       INSERT INTO "Order"
-      ("orderNumber", "customerName", phone, email, address, city, notes, "paymentMethod", "paymentCompleted", "paymentReference", status, subtotal, delivery, total, "userProfileId")
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+      ("orderNumber", "customerName", phone, email, address, city, notes, "paymentMethod", "paymentCompleted", "paymentReference", status, subtotal, delivery, total, "userProfileId", "updatedAt")
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, CURRENT_TIMESTAMP)
       RETURNING id
       `,
       [
@@ -752,10 +749,8 @@ export async function POST(request: Request) {
 
           const variation = variations[variationIndex];
           const availableStock = getVariationStockValue(variation);
-          if (typeof availableStock !== 'number') {
-            await client.query('ROLLBACK');
-            transactionStarted = false;
-            return Response.json({ error: 'Variation stock is unavailable for one or more selected items.' }, { status: 400 });
+          if (availableStock === null) {
+            continue;
           }
 
           variation.stock = Math.max(availableStock - requestEntry.quantity, 0);

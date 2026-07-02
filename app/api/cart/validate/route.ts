@@ -37,7 +37,8 @@ function normalizeToken(value: unknown): string {
 }
 
 function normalizeStockNumber(value: unknown): number | null {
-  const parsed = typeof value === 'number' ? value : Number(String(value ?? '').trim());
+  if (value === null || value === undefined || value === '') return null;
+  const parsed = typeof value === 'number' ? value : Number(String(value).trim());
   if (!Number.isFinite(parsed)) return null;
   return Math.max(parsed, 0);
 }
@@ -178,12 +179,14 @@ export async function POST(request: Request) {
 
         const selectionStocks: number[] = [];
         let invalidSelection = false;
+        let validVariationsCount = 0;
 
         for (const selection of selections) {
           const key = variationRequestKey(product.id, selection.name, selection.option);
 
           if (remainingVariationStock.has(key)) {
             selectionStocks.push(remainingVariationStock.get(key)!);
+            validVariationsCount++;
             continue;
           }
 
@@ -192,18 +195,17 @@ export async function POST(request: Request) {
             invalidSelection = true;
             break;
           }
+          
+          validVariationsCount++;
 
           const stock = normalizeStockNumber(variation.stock);
-          if (typeof stock !== 'number') {
-            invalidSelection = true;
-            break;
+          if (typeof stock === 'number') {
+            remainingVariationStock.set(key, stock);
+            selectionStocks.push(stock);
           }
-
-          remainingVariationStock.set(key, stock);
-          selectionStocks.push(stock);
         }
 
-        if (invalidSelection || selectionStocks.length === 0) {
+        if (invalidSelection || validVariationsCount === 0) {
           adjustments.push({
             id: item.id,
             variationKey: item.variationKey || undefined,
@@ -213,7 +215,9 @@ export async function POST(request: Request) {
           continue;
         }
 
-        variationRemaining = Math.min(...selectionStocks);
+        if (selectionStocks.length > 0) {
+          variationRemaining = Math.min(...selectionStocks);
+        }
       }
 
       const limits: number[] = [];
